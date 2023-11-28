@@ -1,0 +1,25 @@
+{
+  "name": "knitax",
+  "displayName": "knitax",
+  "description": "Syntax highlighting for knit-script",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "knit-script",
+      "aliases": ["knit-script", "knit-script"],
+      "extensions": [".ks"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "knit-script",
+      "scopeName": "source.ks",
+      "path": "./syntaxes/knit-script.tmLanguage.json"
+    }]
+  }
+}
