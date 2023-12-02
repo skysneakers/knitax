@@ -1,32 +1,188 @@
-{
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "knit-script",
+{	
+	"name": "kntit-script",
+	"scopeName": "source.ks",
+	"fileTypes": [".ks"],
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comments"
 		},
 		{
-			"include": "#strings"
+			"include": "#instructions"
+		}, 
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#operators"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.knit-script",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.knit-script",
-			"begin": "\"",
-			"end": "\"",
+		"comments": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.knit-script",
-					"match": "\\\\."
+					"begin": "//",
+					"end": "$",
+					"name": "comment.line.ks"
+				},
+				{
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.ks"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"match": "\\b(?:\\d+\\.?\\d*|\\.\\d+)\\b(?:\\[.*\\])?",
+					"name": "constant.numeric.ks"
+				},
+				{
+					"match": "\\b(Last_Pass|Needles|Front_Needles|Back_Needles|Sliders|Front_Sliders|Back_Sliders|Loops|Front_Loops|Back_Loops|Slider_Loops|Front_Slider_Loops|Back_Slider_Loops|Front|front|Back|back|sliders|layer|sheet|Guage|Carrier|Rack|Sheet)\\b",
+					"name": "constant.language.ks"
+				},
+				{
+					"match": "\\b(true|false|none|False|True|None)\\b",
+					"name": "constant.language.ks"
+				},
+				{
+					"match": "\\b(Right|Left|across|right|left|Rightward|Leftward|Forward|Backward|Decreasing|Increasing|\\<\\-\\-|\\>\\-\\-)\\b",
+					"name": "support.constant.ks"
+				}
+
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"match": "(\\^|\\*|\\+|\\-|\\=|\\<|\\<\\=|\\>|\\>\\=|\\=\\=|\\!\\=)",
+					"name": "keyword.operator.ks"
+				}, 
+				{
+					"match": "\\b(as|in|not|and|or)\\b",
+					"name": "keyword.operator.ks"
+				}
+			]
+		},
+		"instructions": {
+			"patterns": [
+				{
+					"match": "\\b(import)\\b(.*)",
+					"captures": {
+						"1": {
+							"name": "keyword.control.import.ks"
+						},
+						"2": {
+							"patterns": [
+								{
+									"match": "\\b(as)\\b",
+									"name": "keyword.control.import.ks"
+								},
+								{
+									"include": "#comments"
+								}
+							]
+						}
+					}
+				},
+				{
+					"match": "^\\s*\\b(assert|try|catch|if|else|elif|while|for|with|return)\\b(.*)",
+					"captures": {
+						"1": {
+							"name": "keyword.control.flow.ks"
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "#operators"
+								},
+								{
+									"include": "#constants"
+								},
+								{
+									"include": "#comments"
+								}
+							]
+						}
+					}
+				}, 
+				{
+					"match": "^\\s*\\b(pause|print|in|xfer|drop|cut|remove|push|swap|even|odd)\\b(.*)",
+					"captures": {
+						"1": {
+							"name": "support.function.ks"
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "#operators"
+								},
+								{
+									"include": "#constants"
+								},
+								{
+									"match": "\\b(direction|to|bed|with)\\b",
+									"name": "support.function.ks"
+								},
+								{
+									"include": "#comments"
+								}
+							]
+						}
+					}
+				},
+				{
+					"match": "^\\s*\\b(knit|tuck|miss|split|drop)\\b(.*)",
+					"captures": {
+						"1": {
+							"name": "support.function.ks"
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "#operators"
+								}, 
+								{
+									"include": "#constants"
+								},
+								{
+									"include": "#comments"
+								}
+							]
+						}
+					}
+				},
+				{
+					"match": "\\b(def)\\s+(\\w+)(.*):{",
+					"name": "meta.function.ks",
+					"captures": {
+						"1": {
+							"name": "storage.type.ks"
+						},
+						"2": {
+							"name": "entity.name.function.ks"
+						},
+						"3": {
+							"begin": "\\(",
+							"end": "\\)",
+							"name": "meta.function.parameters.ks",
+							"patterns": [
+								{
+									"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+									"name": "variable.parameter.ks"
+								}, 
+								{
+									"include": "#constants"
+								},
+								{
+									"include": "#comments"
+								}
+							]
+
+						}
+					}
 				}
 			]
 		}
-	},
-	"scopeName": "source.ks"
+	}
 }

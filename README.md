@@ -1,6 +1,6 @@
 # knitax README
 
-This is the README for your extension "knitax". After writing up a brief description, we recommend including the following sections.
+Provides syntax highlighting for knit-script
 
 ## Features
 
