@@ -4,6 +4,7 @@
   "description": "Syntax highlighting for knit-script",
   "version": "0.0.1",
   "repository": "https://github.com/skysneakers/knitax",
+  "publisher": "skysneakers",
   "engines": {
     "vscode": "^1.84.0"
   },
