@@ -48,8 +48,11 @@
 				{
 					"match": "\\b(Right|Left|across|right|left|Rightward|Leftward|Forward|Backward|Decreasing|Increasing|\\<\\-\\-|\\>\\-\\-)\\b",
 					"name": "support.constant.ks"
+				},
+				{
+					"match": "'(?:\\\\.|[^\\\\'])*'|\"(?:\\\\.|[^\\\\\"])*\"",
+					"name": "string.quoted.ks"
 				}
-
 			]
 		},
 		"operators": {
