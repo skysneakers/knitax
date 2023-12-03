@@ -46,7 +46,7 @@
 					"name": "constant.language.ks"
 				},
 				{
-					"match": "\\b(Right|Left|across|right|left|Rightward|Leftward|Forward|Backward|Decreasing|Increasing|\\<\\-\\-|\\>\\-\\-)\\b",
+					"match": "\\b(Right|Left|across|right|left|Rightward|Leftward|Forward|Backward|Decreasing|Increasing|\\<\\-\\-|\\>\\-\\-|current|reverse)\\b",
 					"name": "support.constant.ks"
 				},
 				{

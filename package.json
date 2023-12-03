@@ -2,7 +2,7 @@
   "name": "knitax",
   "displayName": "knitax",
   "description": "Syntax highlighting for knit-script",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "https://github.com/skysneakers/knitax",
   "publisher": "skysneakers",
   "engines": {
