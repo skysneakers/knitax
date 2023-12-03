@@ -38,7 +38,7 @@
 					"name": "constant.numeric.ks"
 				},
 				{
-					"match": "\\b(Last_Pass|Needles|Front_Needles|Back_Needles|Sliders|Front_Sliders|Back_Sliders|Loops|Front_Loops|Back_Loops|Slider_Loops|Front_Slider_Loops|Back_Slider_Loops|Front|front|Back|back|sliders|layer|sheet|Guage|Carrier|Rack|Sheet)\\b",
+					"match": "\\b(Last_Pass|Needles|Front_Needles|Back_Needles|Sliders|Front_Sliders|Back_Sliders|Loops|Front_Loops|Back_Loops|Slider_Loops|Front_Slider_Loops|Back_Slider_Loops|Front|front|Back|back|sliders|layer|sheet|Guage|Carrier|Rack|Sheet|Machine|Position|Width|Carriers)\\b",
 					"name": "constant.language.ks"
 				},
 				{
