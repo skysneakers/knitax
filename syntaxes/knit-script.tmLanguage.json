@@ -38,7 +38,7 @@
 					"name": "constant.numeric.ks"
 				},
 				{
-					"match": "\\b(Last_Pass|Needles|Front_Needles|Back_Needles|Sliders|Front_Sliders|Back_Sliders|Loops|Front_Loops|Back_Loops|Slider_Loops|Front_Slider_Loops|Back_Slider_Loops|Front|front|Back|back|sliders|layer|sheet|Guage|Carrier|Rack|Sheet|Machine|Position|Width|Carriers)\\b",
+					"match": "\\b(Last_Pass|Needles|Front_Needles|Back_Needles|Sliders|Front_Sliders|Back_Sliders|Loops|Front_Loops|Back_Loops|Slider_Loops|Front_Slider_Loops|Back_Slider_Loops|Front|front|Back|back|sliders|layer|sheet|Guage|Carrier|Sheet|SWG091N2|Kniterate)\\b",
 					"name": "constant.language.ks"
 				},
 				{
@@ -46,7 +46,7 @@
 					"name": "constant.language.ks"
 				},
 				{
-					"match": "\\b(Right|Left|across|right|left|Rightward|Leftward|Forward|Backward|Decreasing|Increasing|\\<\\-\\-|\\>\\-\\-|current|reverse)\\b",
+					"match": "\\b(Right|Left|Center|Keep|across|right|left|Rightward|Leftward|Forward|Backward|Decreasing|Increasing|\\<\\-\\-|\\>\\-\\-|current|reverse)\\b",
 					"name": "support.constant.ks"
 				},
 				{
@@ -133,6 +133,28 @@
 							]
 						}
 					}
+				},
+				{
+					"match": "^\\s*;;\\b(Machine|Position|Width|Rack|Carriers|Hook)\\b(.*)",
+					"captures": {
+						"1": {
+							"name": "support.function.ks"
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "#operators"
+								},
+								{
+									"include": "#constants"
+								},
+								{
+									"include": "#comments"
+								}
+							]
+						}
+					}
+
 				},
 				{
 					"match": "^\\s*\\b(knit|tuck|miss|split|drop)\\b(.*)",
